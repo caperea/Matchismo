@@ -18,6 +18,10 @@
 		F403C48C1701E3A10049B761 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F403C48B1701E3A10049B761 /* Default-568h@2x.png */; };
 		F403C48F1701E3A10049B761 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F403C48D1701E3A10049B761 /* MainStoryboard.storyboard */; };
 		F403C4921701E3A10049B761 /* CardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F403C4911701E3A10049B761 /* CardGameViewController.m */; };
+		F403C49A1701E8F70049B761 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = F403C4991701E8F70049B761 /* Card.m */; };
+		F403C49D1701E92A0049B761 /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = F403C49C1701E92A0049B761 /* Deck.m */; };
+		F403C4A01701EBD90049B761 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = F403C49F1701EBD90049B761 /* PlayingCard.m */; };
+		F403C4A31701EFC00049B761 /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = F403C4A21701EFC00049B761 /* PlayingCardDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,14 @@
 		F403C48E1701E3A10049B761 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		F403C4901701E3A10049B761 /* CardGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardGameViewController.h; sourceTree = "<group>"; };
 		F403C4911701E3A10049B761 /* CardGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardGameViewController.m; sourceTree = "<group>"; };
+		F403C4981701E8F70049B761 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		F403C4991701E8F70049B761 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		F403C49B1701E92A0049B761 /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		F403C49C1701E92A0049B761 /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		F403C49E1701EBD90049B761 /* PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCard.h; sourceTree = "<group>"; };
+		F403C49F1701EBD90049B761 /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
+		F403C4A11701EFC00049B761 /* PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
+		F403C4A21701EFC00049B761 /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,14 @@
 		F403C47B1701E3A10049B761 /* Matchismo */ = {
 			isa = PBXGroup;
 			children = (
+				F403C4981701E8F70049B761 /* Card.h */,
+				F403C4991701E8F70049B761 /* Card.m */,
+				F403C49B1701E92A0049B761 /* Deck.h */,
+				F403C49C1701E92A0049B761 /* Deck.m */,
+				F403C49E1701EBD90049B761 /* PlayingCard.h */,
+				F403C49F1701EBD90049B761 /* PlayingCard.m */,
+				F403C4A11701EFC00049B761 /* PlayingCardDeck.h */,
+				F403C4A21701EFC00049B761 /* PlayingCardDeck.m */,
 				F403C4841701E3A10049B761 /* CardGameAppDelegate.h */,
 				F403C4851701E3A10049B761 /* CardGameAppDelegate.m */,
 				F403C48D1701E3A10049B761 /* MainStoryboard.storyboard */,
@@ -177,6 +197,10 @@
 				F403C4821701E3A10049B761 /* main.m in Sources */,
 				F403C4861701E3A10049B761 /* CardGameAppDelegate.m in Sources */,
 				F403C4921701E3A10049B761 /* CardGameViewController.m in Sources */,
+				F403C49A1701E8F70049B761 /* Card.m in Sources */,
+				F403C49D1701E92A0049B761 /* Deck.m in Sources */,
+				F403C4A01701EBD90049B761 /* PlayingCard.m in Sources */,
+				F403C4A31701EFC00049B761 /* PlayingCardDeck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
