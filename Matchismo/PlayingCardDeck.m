@@ -17,7 +17,7 @@
     if (self) {
         [self resetDeck];
     }
-    
+
     return self;
 }
 

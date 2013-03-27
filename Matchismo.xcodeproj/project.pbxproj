@@ -105,9 +105,9 @@
 				F403C4A21701EFC00049B761 /* PlayingCardDeck.m */,
 				F403C4841701E3A10049B761 /* CardGameAppDelegate.h */,
 				F403C4851701E3A10049B761 /* CardGameAppDelegate.m */,
-				F403C48D1701E3A10049B761 /* MainStoryboard.storyboard */,
 				F403C4901701E3A10049B761 /* CardGameViewController.h */,
 				F403C4911701E3A10049B761 /* CardGameViewController.m */,
+				F403C48D1701E3A10049B761 /* MainStoryboard.storyboard */,
 				F403C47C1701E3A10049B761 /* Supporting Files */,
 			);
 			path = Matchismo;
@@ -323,6 +323,7 @@
 				F403C4971701E3A10049B761 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

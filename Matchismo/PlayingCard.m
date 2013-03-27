@@ -34,7 +34,7 @@
 
 - (NSString *)contents
 {
-    return [[PlayingCard rankStrings][self.rank] stringByAppendingString:self.suit];
+    return [[[PlayingCard rankStrings] objectAtIndex:self.rank-1] stringByAppendingString:self.suit];
 }
 
 - (void)setSuit:(NSString *)suit
@@ -44,10 +44,13 @@
     }
 }
 
+// rank = [1..13]
 - (void)setRank:(NSUInteger)rank
 {
     if (rank <= [PlayingCard maxRank]) {
         _rank = rank;
+    } else {
+        NSLog(@"rand out of range! (%d)", rank);
     }
 }
 
