@@ -21,6 +21,11 @@
     return _cards;
 }
 
+- (void)clearDeck
+{
+    [self.cards removeAllObjects];
+}
+
 - (void)addCard:(Card *)card atTop:(BOOL)atTop
 {
     if (atTop) {

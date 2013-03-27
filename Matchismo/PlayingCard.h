@@ -15,6 +15,4 @@
 + (NSArray *)validSuits;
 + (NSUInteger)maxRank;
 
-- (NSString *)cardName;
-
 @end

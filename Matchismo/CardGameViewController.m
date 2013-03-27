@@ -7,12 +7,14 @@
 //
 
 #import "CardGameViewController.h"
+#import "PlayingCardDeck.h"
 
 @interface CardGameViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *card;
+@property (strong, nonatomic) IBOutletCollection(UIButton) ASArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
-@property (nonatomic) PlayingCardDeck *deck;
+@property (strong, nonatomic) PlayingCardDeck *deck;
 @end
 
 @implementation CardGameViewController
@@ -22,6 +24,15 @@
 {
     if (!_deck) _deck = [[PlayingCardDeck alloc] init];
     return _deck;
+}
+
+- (void)setCardButtons:(NSArray *)cardButtons
+{
+    _cardButtons = cardButtons;
+    for (UIButton *cb in cardButtons) {
+        Card *c = [self.deck drawRandomCard];
+        [cb setTitle:card.contents forState:UIControlStateSelected];
+    }
 }
 
 - (void)setFlipCount:(int)flipCount
@@ -41,7 +52,7 @@
     if (sender.isSelected) {
         PlayingCard *thisCard = (PlayingCard *)[self.deck drawRandomCard];
         if (thisCard) {
-            [self.card setTitle:thisCard.cardName forState:UIControlStateSelected];
+            [self.card setTitle:thisCard.contents forState:UIControlStateSelected];
         } else {
             self.card.enabled = NO;
         }

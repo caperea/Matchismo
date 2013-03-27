@@ -51,10 +51,4 @@
     }
 }
 
-- (NSString *)cardName
-{
-    NSLog(@"cardName: %@%d", self.suit, self.rank);
-    return [NSString stringWithFormat:@"%@%@",[[[self class] rankStrings] objectAtIndex:self.rank-1], self.suit];
-}
-
 @end

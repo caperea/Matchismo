@@ -15,17 +15,24 @@
     self = [super init];
     
     if (self) {
-        for (NSString *suit in [PlayingCard validSuits]) {
-            for (NSUInteger rank = 1; rank<= [PlayingCard maxRank]; rank++) {
-                PlayingCard *card = [[PlayingCard alloc] init];
-                card.rank = rank;
-                card.suit = suit;
-                [self addCard:card atTop:YES];
-            }
-        }
+        [self resetDeck];
     }
     
     return self;
+}
+
+- (void)resetDeck
+{
+    [self clearDeck];
+    for (NSString *suit in [PlayingCard validSuits]) {
+        for (NSUInteger rank = 1; rank<= [PlayingCard maxRank]; rank++) {
+            PlayingCard *card = [[PlayingCard alloc] init];
+            card.rank = rank;
+            card.suit = suit;
+            [self addCard:card atTop:YES];
+         }
+    }
+    
 }
 
 @end
