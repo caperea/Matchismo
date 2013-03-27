@@ -13,6 +13,24 @@
 @synthesize suit = _suit;
 @synthesize rank = _rank;
 
+- (int)match:(NSArray *)otherCards
+{
+    int score = 0;
+    
+    if (otherCards.count == 1) {
+        PlayingCard * otherCard = [otherCards lastObject];
+        NSLog(@"match: %@ %@.", otherCard.contents, self.contents);
+        if ([otherCard.suit isEqualToString:self.suit]) {
+            score = 1;
+        } else if(otherCard.rank == self.rank) {
+            score = 4;
+        }
+    }
+    if (score) {
+        NSLog(@"matched PlayingCard.");
+    }
+    return score;
+}
 + (NSArray *)validSuits
 {
     static NSArray *validSuits = nil;

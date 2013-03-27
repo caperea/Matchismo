@@ -8,32 +8,53 @@
 
 #import "CardGameViewController.h"
 #import "PlayingCardDeck.h"
+#import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
 @property (nonatomic) int flipCount;
-@property (strong, nonatomic) PlayingCardDeck *deck;
+@property (strong, nonatomic) CardMatchingGame *game;
 @end
 
 @implementation CardGameViewController
-@synthesize deck = _deck;
+//@synthesize cardButtons = _cardButtons;
 
-- (PlayingCardDeck *)deck
+- (CardMatchingGame *)game
 {
-    if (!_deck) _deck = [[PlayingCardDeck alloc] init];
-    return _deck;
+    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:self.cardButtons.count usingDeck:[[PlayingCardDeck alloc] init]];
+    return _game;
 }
 
 - (void)setCardButtons:(NSArray *)cardButtons
 {
     _cardButtons = cardButtons;
+    // this is now done in updateUI method
+    /*
     for (UIButton *cb in cardButtons) {
         Card *c = [self.deck drawRandomCard];
         [cb setTitle:c.contents forState:UIControlStateSelected];
     }
+     */
 }
-
+- (void)updateUI
+{
+    for (int i = 0; i<self.cardButtons.count; i++) {
+        Card *card = [self.game cardAtIndex:i];
+        UIButton * cb = self.cardButtons[i];
+        [cb setTitle:card.contents forState:UIControlStateSelected];
+        [cb setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
+        
+        cb.selected = card.faceUp;
+        cb.enabled = !card.isUnplayable;
+    }
+    
+}
+- (IBAction)flipCard:(UIButton *)sender {
+    [self.game flipCardAtIndex:[self.cardButtons indexOfObject:sender]];
+    self.flipCount++;
+    [self updateUI];
+}
 - (void)setFlipCount:(int)flipCount
 {
     _flipCount = flipCount;
@@ -46,18 +67,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
-- (IBAction)flipCard:(UIButton *)sender {
-    sender.selected = !sender.isSelected;
-    if (sender.isSelected) {
-        self.flipCount += 1;
-//        PlayingCard *thisCard = (PlayingCard *)[self.deck drawRandomCard];
-//        if (thisCard) {
-//            [self.card setTitle:thisCard.contents forState:UIControlStateSelected];
-//        } else {
-//            self.card.enabled = NO;
-//        }
-    }
-}
+
 
 
 - (void)didReceiveMemoryWarning
