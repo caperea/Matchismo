@@ -48,14 +48,15 @@
 }
 - (IBAction)flipCard:(UIButton *)sender {
     sender.selected = !sender.isSelected;
-//    if (sender.isSelected) {
+    if (sender.isSelected) {
+        self.flipCount += 1;
 //        PlayingCard *thisCard = (PlayingCard *)[self.deck drawRandomCard];
 //        if (thisCard) {
 //            [self.card setTitle:thisCard.contents forState:UIControlStateSelected];
 //        } else {
 //            self.card.enabled = NO;
 //        }
-        self.flipCount += 1;
+    }
 }
 
 

@@ -10,9 +10,25 @@
 
 #import "CardGameAppDelegate.h"
 
+//int main(int argc, char *argv[])
+//{
+//    @autoreleasepool {
+//        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CardGameAppDelegate class]));
+//    }
+//}
+
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CardGameAppDelegate class]));
+        
+        int retVal;
+        @try {
+            retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([CardGameAppDelegate class]));
+        }
+        @catch (NSException *exception) {
+            NSLog(@"CRASH: %@", exception);
+            NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
+        }
+        return retVal;
     }
 }
