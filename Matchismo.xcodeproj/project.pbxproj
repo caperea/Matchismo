@@ -110,9 +110,9 @@
 				F403C4851701E3A10049B761 /* CardGameAppDelegate.m */,
 				F403C4901701E3A10049B761 /* CardGameViewController.h */,
 				F403C4911701E3A10049B761 /* CardGameViewController.m */,
-				F403C48D1701E3A10049B761 /* MainStoryboard.storyboard */,
 				F4C1E7C2170348550025B1B6 /* CardMatchingGame.h */,
 				F4C1E7C3170348550025B1B6 /* CardMatchingGame.m */,
+				F403C48D1701E3A10049B761 /* MainStoryboard.storyboard */,
 				F403C47C1701E3A10049B761 /* Supporting Files */,
 			);
 			path = Matchismo;

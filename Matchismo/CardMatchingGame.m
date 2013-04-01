@@ -10,10 +10,13 @@
 @interface CardMatchingGame()
 
 @property (strong, nonatomic) NSMutableArray *cards;
-@property (nonatomic) int score;
+@property (nonatomic) int cardCount;
+@property (nonatomic) Deck *deck;
 @end
 
 @implementation CardMatchingGame
+@synthesize deck = _deck;
+@synthesize cardCount = _cardCount;
 
 - (NSMutableArray *)cards
 {
@@ -23,21 +26,27 @@
 
 - (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck
 {
-    self = [super init];
-    
-    if (self) {
-        for (int i = 0; i < cardCount; ++i) {
-            Card *card = [deck drawRandomCard];
-            if (card) {
-                self.cards[i] = card;
-            } else {
-                self = nil;
-                break;
-            }
+    if (self = [super init]) {
+        self.cardCount = cardCount;
+        self.deck = deck;
+        if (![self resetGame])
+            self = nil;
+    }
+    return self;
+}
+
+- (BOOL)resetGame
+{
+    self.score = 0;
+    for (int i = 0; i < self.cardCount; ++i) {
+        Card *card = [self.deck drawRandomCard];
+        if (card) {
+            self.cards[i] = card;
+        } else {
+            return NO;
         }
     }
-    
-    return self;
+    return YES;
 }
 
 - (Card *)cardAtIndex:(NSUInteger)index
@@ -60,7 +69,6 @@
                     if (matchScore) {
                         c.unplayable = YES;
                         card.unplayable = YES;
-                        NSLog(@"match found. %@ %d.", c.contents, matchScore);
                         self.score += matchScore * MATCH_BONUS;
                     } else {
                         c.faceUp = NO;
@@ -70,8 +78,8 @@
             }
         }
         card.faceUp = !card.faceUp;
-
+        
     }
 }
-    
+
 @end

@@ -19,7 +19,6 @@
     
     if (otherCards.count == 1) {
         PlayingCard * otherCard = [otherCards lastObject];
-        NSLog(@"match: %@ %@.", otherCard.contents, self.contents);
         if ([otherCard.suit isEqualToString:self.suit]) {
             score = 1;
         } else if(otherCard.rank == self.rank) {

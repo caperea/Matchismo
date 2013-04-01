@@ -14,5 +14,7 @@
 - (id)initWithCardCount:(NSUInteger)cardCount usingDeck:(Deck *)deck;
 - (void)flipCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
+- (BOOL)resetGame;
+@property (nonatomic) int score;
 
 @end

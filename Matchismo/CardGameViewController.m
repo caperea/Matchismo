@@ -13,6 +13,7 @@
 @interface CardGameViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (nonatomic) int flipCount;
 @property (strong, nonatomic) CardMatchingGame *game;
 @end
@@ -31,10 +32,10 @@
     _cardButtons = cardButtons;
     // this is now done in updateUI method
     /*
-    for (UIButton *cb in cardButtons) {
-        Card *c = [self.deck drawRandomCard];
-        [cb setTitle:c.contents forState:UIControlStateSelected];
-    }
+     for (UIButton *cb in cardButtons) {
+     Card *c = [self.deck drawRandomCard];
+     [cb setTitle:c.contents forState:UIControlStateSelected];
+     }
      */
 }
 - (void)updateUI
@@ -47,6 +48,9 @@
         
         cb.selected = card.faceUp;
         cb.enabled = !card.isUnplayable;
+        
+        self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
     }
     
 }
@@ -55,11 +59,18 @@
     self.flipCount++;
     [self updateUI];
 }
+
+- (IBAction)resetGame:(UIButton *)sender
+{
+    [self.game resetGame];
+    self.flipCount = 0;
+    [self updateUI];
+}
+
 - (void)setFlipCount:(int)flipCount
 {
     _flipCount = flipCount;
-    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
-    NSLog(@"flipCount updated to %d.", self.flipCount);
+    
 }
 
 - (void)viewDidLoad
