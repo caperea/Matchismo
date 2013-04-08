@@ -1,4 +1,4 @@
-CS139P-Matchismo
+CS193P-Matchismo
 ================
 
 Matchismo Card Game from CS193P (Winter 2013)
